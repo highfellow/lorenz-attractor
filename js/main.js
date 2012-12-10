@@ -91,6 +91,8 @@ requirejs(["quaternion"], function (Quaternion) {
     var running = true;
     // true during mouse drag.
     var dragging = false;
+    // true if shift key down.
+    var shifty = false;
     // drag origin
     var dragOrigin = null;
     // current drag Position relative to drag start.
@@ -423,6 +425,19 @@ requirejs(["quaternion"], function (Quaternion) {
         };
       });
 
+    // detect shift key
+    $(document).keydown(function(e) {
+        if (e.which === 16) {
+          shifty = true;
+        }
+      });
+
+    $(document).keyup(function(e) {
+        if (e.which === 16) {
+          shifty = false;
+        }
+      });
+
     // set up input boxes.
     for (var parm in inputs) {
       initInput(parm);
@@ -474,23 +489,29 @@ requirejs(["quaternion"], function (Quaternion) {
       }
       if (dragging && dragOrigin !== null) {
         // the mouse is being dragged.
-        var dragDist = Math.sqrt(
-          dragPos.x * dragPos.x +
-          dragPos.y * dragPos.y
-        );
-        if (dragDist > 0) {
-          var axis = [dragPos.y / dragDist, dragPos.x / dragDist, 0];
+        var angle, axis;
+        if (shifty) {
+          axis = [0, 0, 1];
+          angle = dragPos.x;
         } else {
-          axis = [0, 1, 0, 0];
+          var dragDist = Math.sqrt(
+            dragPos.x * dragPos.x +
+            dragPos.y * dragPos.y
+          );
+          if (dragDist > 0) {
+            axis = [dragPos.y / dragDist, dragPos.x / dragDist, 0];
+          } else {
+            axis = [0, 1, 0, 0];
+          }
+          angle = dragDist;
         }
-        var angle = dragDist * 2 * Math.PI / dragScale;
+        angle *= 2 * Math.PI / dragScale;
         dragRot.setAxisAngle(axis, angle);
         curRot = dragRot.multiply(rotation);
         for (var i = 0; i < 3; i++) {
           // rotate the axes.
           axes[i] = rotatePoint(origAxes[i], curRot);
         }
-        console.log(axes);
       }
       plot.setData(getAllSeries(axes));
       plot.draw();
