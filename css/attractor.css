@@ -3,12 +3,16 @@ body {
   background: #222;
 }
 
+a {
+  color: #f84;
+}
+
 h2 {
   margin: 0px;
   margin-top: 10px;
 }
 
-.row {
+p,.sliderText {
   color: #ddd;
 }
 
