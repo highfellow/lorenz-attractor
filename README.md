@@ -7,4 +7,6 @@ You need to install the flot jquery graphing plugin under 'flot/' for this code 
 
 Having done this, you just need to copy to a directory inside your web root, and set the file permissions right for your system.
 
+There is an online demo of the program working at: http://highfellow.github.com/lorenz-attractor/attractor.html.
+
 See LICENSE for Licensing. Roughly you can do what you like with it as long as you credit me and don't expect it to work for any serious purpose.
