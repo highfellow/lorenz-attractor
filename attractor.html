@@ -14,32 +14,32 @@
     <body>
     <div id="wrapper">
       <div id="column1">
-        <h2 class="topHeader">Lorenz system with flot.js.</h1>
+        <h2 class="topHeader">Lorenz system with flot.js.</h2>
         <div id="chartWrapper"><div id="chart"></div></div>
       </div>
       <div id="column2">
         <div class="topHeader"><h2>Parameters to the Lorenz Equations</h2></div>
         <div class="row">
-          <div class="sliderText">sigma: <input id="sigma" type="text" value="10" class="sliderInput"></div>
+          <div class="sliderText">sigma: <input id="sigma" type="text" class="sliderInput"></div>
           <div id="sigmaSlider" class="slider"></div>
         </div>
         <div class="row">
-          <div class="sliderText">rho: <input id="rho" type="text" value="28" class="sliderInput"></div>
+          <div class="sliderText">rho: <input id="rho" type="text" class="sliderInput"></div>
           <div id="rhoSlider" class="slider"></div>
         </div>
         <div class="row">
-          <div class="sliderText">beta: <input id="beta" type="text" value="2.66" class="sliderInput"></div>
+          <div class="sliderText">beta: <input id="beta" type="text" class="sliderInput"></div>
           <div id="betaSlider" class="slider"></div>
         </div>
         <div class="row">
-          <h2>Randomise</h2>
+          <h2>Randomise initial point</h2>
         </div>
         <div class="row">
-          <div class="sliderText">variation: <input id="ranVary" type="text" value="0" class="sliderInput"></div>
+          <div class="sliderText">variation: <input id="ranVary" type="text" class="sliderInput"></div>
           <div id="ranVarySlider" class="slider"></div>
         </div>
         <div class="row">
-          <div class="sliderText">spread: <input id="ranSpread" type="text" value="0" class="sliderInput"></div>
+          <div class="sliderText">spread: <input id="ranSpread" type="text" class="sliderInput"></div>
           <div id="ranSpreadSlider" class="slider"></div>
         </div>
         <div class="row">
@@ -57,15 +57,20 @@
           <h2>Other controls</h2>
         </div>
         <div class="row">
-          <div class="sliderText">zoom: <input id="zoom" type="text" value="1" class="sliderInput"></div>
+          <div class="sliderText">zoom: <input id="zoom" type="text" class="sliderInput"></div>
           <div id="zoomSlider" class="slider"></div>
         </div>
         <div class="row">
-          <p>Refresh period (ms): <input id="updateInterval" type="text" value=""></p>
+          <p>Refresh period (ms): <input id="updateInterval" type="text" class="right"></p>
         </div>
         <div class="row">
-          <p>Number of series: <input id="numSeries" type="text" value=""></p>
+          <p>Number of series: <input id="numSeries" type="text" class="right" ></p>
         </div>
+        <div class="row">
+          <p>To rotate the plot in 3D space, just drag or Shift + drag on the chart grid.</p>
+          <p>If you pause the plot, then change the parameter sliders, the plot is redrawn from the start in real time.</p>
+          <p>To test with multiple series, try setting 'variation' to about 20, 'spread' to about 0.2, and 'Number of series' to 2, then press Restart.</p>
+          <p>For background on the equations, see this <a href="http://en.wikipedia.org/wiki/Lorenz_system">page</a></p>
       </div>
     </div>
  </body>

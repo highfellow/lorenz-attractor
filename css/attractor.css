@@ -8,6 +8,10 @@ h2 {
   margin-top: 10px;
 }
 
+.row {
+  color: #ddd;
+}
+
 #wrapper {
   height: 100%;
   width: 100%;
@@ -78,6 +82,11 @@ h2 {
 
 input {
   width: 3em;
+}
+
+.right {
+  float: right;
+  margin-right: 20px;
 }
 
 .sliderInput {
