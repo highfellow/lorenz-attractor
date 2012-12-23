@@ -85,7 +85,7 @@ requirejs(["Quaternion", "Input", "InputGroup"], function (Quaternion, Input, In
               selector: "#numSeries",
               init: 1,
               min: 1,
-              max: 10,
+              max: 20,
               slider: false
             });
 
