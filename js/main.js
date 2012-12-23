@@ -387,6 +387,17 @@ requirejs(["Quaternion", "Input", "InputGroup"], function (Quaternion, Input, In
 
       function update() {
         // do the animation loop.
+        if (zoomInput.getChanged()) {
+          // the zoom value has changed.
+          scale = zoomInput.getValue();
+          zoomInput.setChanged(false);
+          makePlot();
+        }
+        if (seriesLenInput.getChanged()) {
+          // length of series has changed.
+          totalPoints = seriesLenInput.getValue();
+          seriesLenInput.setChanged(false);
+        }
         if (running) {
           // animation running.
           for (var i = 0; i < iters; i++) {
@@ -405,17 +416,6 @@ requirejs(["Quaternion", "Input", "InputGroup"], function (Quaternion, Input, In
               addAllDataPoints();
             }
           }
-        }
-        if (zoomInput.getChanged()) {
-          // the zoom value has changed.
-          scale = zoomInput.getValue();
-          zoomInput.setChanged(false);
-          makePlot();
-        }
-        if (seriesLenInput.getChanged()) {
-          // length of series has changed.
-          totalPoints = seriesLenInput.getValue();
-          seriesLenInput.setChanged(false);
         }
         if (dragging && dragOrigin !== null) {
           // the mouse is being dragged.
