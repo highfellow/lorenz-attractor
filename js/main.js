@@ -89,6 +89,15 @@ requirejs(["Quaternion", "Input", "InputGroup"], function (Quaternion, Input, In
               slider: false
             });
 
+      var seriesLenInput = new Input(
+          {
+            selector: "#seriesLen",
+            init: 1000,
+            min: 1,
+            max: 2000,
+            slider: false
+          });
+
       // the array of raw data for all the plot series
       var data = [[]];
       // maxiumum number of points in the series.
@@ -402,6 +411,11 @@ requirejs(["Quaternion", "Input", "InputGroup"], function (Quaternion, Input, In
           scale = zoomInput.getValue();
           zoomInput.setChanged(false);
           makePlot();
+        }
+        if (seriesLenInput.getChanged()) {
+          // length of series has changed.
+          totalPoints = seriesLenInput.getValue();
+          seriesLenInput.setChanged(false);
         }
         if (dragging && dragOrigin !== null) {
           // the mouse is being dragged.
